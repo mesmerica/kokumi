@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Sour+Gummy:wght@400;700&display=swap');
+    
+    ::-webkit-scrollbar {
+    display: none;
+    }
+    body { 
+      width: 340px; 
+      padding: 16px; 
+      margin: 0; 
+      font-family: var(--popup-font, "Sour Gummy", sans-serif); 
+      background: var(--color-bg, #fdebd0); 
+      color: var(--color-text-body, #592724);
+      transition: background 0.3s, color 0.3s;
+    }
+    
+    .tabs { 
+      display: flex; 
+      border-bottom: 2px solid var(--color-brown-500, #7b423e); 
+      margin-bottom: 16px; 
+      gap: 4px;
+    }
+    
+    .tab { 
+      flex: 1; 
+      padding: 10px; 
+      text-align: center; 
+      cursor: pointer; 
+      background: var(--color-tan-300, #dfccad); 
+      border-radius: 8px 8px 0 0; 
+      font-weight: bold; 
+      font-size: 14px;
+      color: var(--color-text-muted, #6b524f); 
+      transition: all 0.2s ease;
+    }
+    
+    .tab:hover {
+      background: var(--color-brown-400, #ad6d56);
+      color: var(--color-bg, #fdebd0);
+    }
+    
+    .tab.active { 
+      background: var(--color-brown-500, #7b423e); 
+      color: var(--color-bg, #fdebd0); 
+    }
+    
+    .panel { display: none; }
+    .panel.active { display: block; animation: fadeIn 0.3s ease; }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .categorySection { 
+      margin-bottom: 20px; 
+      background: var(--color-bg-2, #dfccad);
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid var(--color-brown-400, #ad6d56);
+    }
+    
+    .categoryTitle { 
+      font-weight: 700; 
+      font-size: 16px; 
+      color: var(--color-text-header, #4e2c31); 
+      border-bottom: 2px dashed var(--color-brown-400, #ad6d56); 
+      padding-bottom: 6px; 
+      margin-bottom: 12px; 
+    }
+    
+    .itemRow { 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+      margin-bottom: 8px; 
+    }
+    
+    .itemLabel { 
+      font-size: 14px; 
+      font-weight: 600;
+    }
+    
+    .colorInput { 
+      width: 44px; 
+      height: 28px; 
+      padding: 0; 
+      border: 2px solid var(--color-brown-500, #7b423e); 
+      cursor: pointer; 
+      border-radius: 6px; 
+      background: none;
+    }
+    
+    .textInput { 
+      width: 160px; 
+      padding: 6px; 
+      font-size: 12px; 
+      border: 2px solid var(--color-brown-400, #ad6d56); 
+      border-radius: 6px; 
+      background: var(--color-bg, #fdebd0);
+      color: var(--color-text-body, #592724);
+      font-family: inherit;
+    }
+    
+    input[type="checkbox"] {
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--color-brown-500, #7b423e);
+      border-radius: 4px;
+      background: var(--color-bg, #fdebd0);
+      cursor: pointer;
+      position: relative;
+    }
+    
+    input[type="checkbox"]:checked {
+      background: var(--color-green-400, #6da843);
+      border-color: var(--color-green-500, #458032);
+    }
+    
+    input[type="checkbox"]:checked::after {
+      content: '\2714';
+      position: absolute;
+      color: white;
+      font-size: 14px;
+      top: -1px;
+      left: 3px;
+    }
+    
+    .footer { 
+      margin-top: 20px; 
+      display: flex; 
+      gap: 8px; 
+    }
+    
+    button { 
+      cursor: pointer; 
+      flex: 1; 
+      padding: 10px; 
+      font-size: 14px; 
+      font-weight: bold;
+      font-family: inherit;
+      background: var(--color-brown-500, #7b423e); 
+      color: var(--color-bg, #fdebd0);
+      border: none; 
+      border-radius: 6px; 
+      transition: transform 0.1s, background 0.2s;
+    }
+    
+    button:hover { 
+      background: var(--color-brown-400, #ad6d56); 
+      transform: translateY(-2px);
+    }
+    
+    button:active {
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <div class="tabs">
+    <div class="tab active" data-target="togglesPanel">Toggles</div>
+    <div class="tab" data-target="themesPanel">Themes</div>
+  </div>
+
+  <div id="togglesPanel" class="panel active">
+    <div id="toggleContainer"></div>
+    <div class="footer">
+      <button id="exportSettings">Export</button>
+      <button id="importSettings">Import</button>
+      <input type="file" id="fileInputSettings" style="display:none" accept=".json">
+    </div>
+  </div>
+
+  <div id="themesPanel" class="panel">
+    <div class="categorySection">
+      <div class="categoryTitle">Typography</div>
+      <div class="itemRow">
+        <span class="itemLabel">Google Font URL</span>
+        <input type="text" id="googleFontUrl" class="textInput" placeholder="https://fonts.googleapis.com/css2?family=...">
+      </div>
+      <div class="itemRow">
+        <span class="itemLabel">Font Family</span>
+        <input type="text" id="fontFamily" class="textInput" placeholder="'Inter', sans-serif">
+      </div>
+    </div>
+    <div id="themeContainer"></div>
+    <div class="footer">
+      <button id="exportTheme">Export</button>
+      <button id="importTheme">Import</button>
+      <button id="resetTheme">Reset</button>
+      <input type="file" id="fileInputTheme" style="display:none" accept=".json">
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

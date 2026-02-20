@@ -1,0 +1,134 @@
+[
+  {
+    "name": "Reveal Hidden Achievements",
+    "category": "Features",
+    "selectors": []
+  },
+  {
+    "name": "Chef Hat",
+    "category": "Extras",
+    "selectors": [
+      "sidebar__user-avatar-hat-bg",
+      "sidebar__user-avatar-hat"
+    ]
+  },
+  {
+    "name": "Music Player",
+    "category": "Extras",
+    "selectors": [
+      "music-player"
+    ]
+  },
+  {
+    "name": "Dev Footer",
+    "category": "Extras",
+    "selectors": [
+      "dev-footer"
+    ]
+  },
+  {
+    "name": "Kitchen Setup",
+    "category": "Kitchen",
+    "selectors": [
+      "kitchen-setup"
+    ]
+  },
+  {
+    "name": "Kitchen Comic",
+    "category": "Kitchen",
+    "selectors": [
+      "kitchen-comic"
+    ]
+  },
+  {
+    "name": "Kitchen Stats",
+    "category": "Kitchen",
+    "selectors": [
+      "kitchen-stats"
+    ]
+  },
+  {
+    "name": "Recently Added",
+    "category": "Kitchen",
+    "selectors": [
+      "kitchen-recently-added"
+    ]
+  },
+  {
+    "name": "Kitchen Help",
+    "category": "Kitchen",
+    "selectors": [
+      "kitchen-help"
+    ]
+  },
+  {
+    "name": "Kitchen",
+    "category": "Sidebar",
+    "selectors": [
+      "sidebar__nav-item:nth-child(1)"
+    ]
+  },
+  {
+    "name": "Explore",
+    "category": "Sidebar",
+    "selectors": [
+      "sidebar__nav-item:nth-child(2)"
+    ]
+  },
+  {
+    "name": "Projects",
+    "category": "Sidebar",
+    "selectors": [
+      "sidebar__nav-item:nth-child(3)"
+    ]
+  },
+  {
+    "name": "Sidequests",
+    "category": "Sidebar",
+    "selectors": [
+      "sidebar__nav-item:nth-child(4)"
+    ]
+  },
+  {
+    "name": "Vote",
+    "category": "Sidebar",
+    "selectors": [
+      "sidebar__nav-item:nth-child(5)"
+    ]
+  },
+  {
+    "name": "Shop",
+    "category": "Sidebar",
+    "selectors": [
+      "sidebar__nav-item:nth-child(6)"
+    ]
+  },
+  {
+    "name": "Achievements",
+    "category": "Sidebar",
+    "selectors": [
+      "kokumi-achievements-nav"
+    ]
+  },
+  {
+    "name": "Suggestion Box",
+    "category": "Shop",
+    "selectors": [
+      "shop-suggestion-box"
+    ]
+  },
+  {
+    "name": "Shop Recently Added",
+    "category": "Shop",
+    "selectors": [
+      "shop__recently-added"
+    ]
+  },
+  {
+    "name": "Shop Banner",
+    "category": "Shop",
+    "selectors": [
+      "shop__banner"
+    ]
+  }
+]
